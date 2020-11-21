@@ -18,7 +18,7 @@ class CreateSquadsTable extends Migration
             $table->string('name', 255); // TODO: Optimal length for name
             $table->string('code', 8); // TODO: How are we defining the code?
             $table->text('password_hash'); //TODO: Maybe varchar for length
-            $table->string('country', 420); // TODO: Convert to ENUM
+            $table->enum('region', config('covid.regions_slug'));
             $table->tinyInteger('season_length');
             $table->foreignId('admin_id')->constrained('users');
             $table->timestamps();
